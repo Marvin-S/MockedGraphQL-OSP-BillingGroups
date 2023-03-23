@@ -24,7 +24,7 @@
       ]
     },
     "billingGroups": {
-      "hasMany": "BillingGroup"
+      "hasMany": "Billinggroup"
     }
   },
   "Billinggroup": {
@@ -48,7 +48,7 @@
       ]
     },
     "outsourcingPartners": {
-      "hasMany": "OutsourcingPartner"
+      "hasMany": "Outsourcingpartner"
     }
   }
 }
