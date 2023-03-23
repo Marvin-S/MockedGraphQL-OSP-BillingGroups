@@ -3,11 +3,10 @@
     "_": {
       "items": 50,
       "data": [
-	{ "name": "John Doe", "online": true, "picture": "https://…" }
+	{ "name": "John Doe", "online": true }
       ]
     },
     "name": { "string": {} },
     "online": { "boolean": {} },
-    "picture": { "regexp": "https://…" },
   }
 }
