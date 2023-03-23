@@ -1,12 +1,144 @@
 {
-  "User": {
+  "OutsourcingPartner": {
     "_": {
-      "items": 50,
       "data": [
-	{ "name": "John Doe", "online": true }
+        {
+          "id": "36a11c85380b4afb994710ea63f99964",
+          "name": "Luke Skywalker",
+          "billingGroups": {
+            "hasMany": "BillingGroup"
+          },
+          "__typename": "OutsourcingPartner"
+        },
+        {
+          "id": "658b19b76a0f494590c21a7c27173d8e",
+          "name": "Darth Vader",
+          "billingGroups": {
+            "hasMany": "BillingGroup"
+          },
+          "__typename": "OutsourcingPartner"
+        },
+        {
+          "id": "fabaecbb6ac045bb9b582244b889d309",
+          "name": "Yoda",
+          "billingGroups": {
+            "hasMany": "BillingGroup"
+          },
+          "__typename": "OutsourcingPartner"
+        },
+        {
+          "id": "0284241ba3ed487eb8d12c0e86161fc0",
+          "name": "Clone Trooper 0815",
+          "billingGroups": {
+            "hasMany": "BillingGroup"
+          },
+          "__typename": "OutsourcingPartner"
+        }
+      ]
+    }
+  },
+  "BillingGroup": {
+    "_": {
+      "data": [
+        {
+          "id": "95a87597ef124bbf9907f8f6074f8e94",
+          "name": "Dark Forces",
+          "outsourcingPartners": {
+            "hasMany": "OutsourcingPartner"
+          },
+          "__typename": "BillingGroup"
+        },
+        {
+          "id": "4dedf55e5a8a4ce5affb1bc65b65de09",
+          "name": "Jedi Council",
+          "outsourcingPartners": {
+            "hasMany": "OutsourcingPartner"
+          },
+          "__typename": "BillingGroup"
+        },
+        {
+          "id": "c8d8db2b1f4f4a069fa640c9c8cbe489",
+          "name": "The Jedis",
+          "outsourcingPartners": {
+            "hasMany": "OutsourcingPartner"
+          },
+          "__typename": "BillingGroup"
+        }
+      ]
+    }
+  },
+  "Post": {
+    "_": {
+      "items": 10,
+      "data": [
+        {
+          "title": "First title",
+          "body": "You can use your own data or have random values generated for you."
+        },
+        {
+          "title": "Second title",
+          "body": "The rest of the posts will have random values"
+        }
       ]
     },
-    "name": { "string": {} },
-    "online": { "boolean": {} }
+    "cover": {
+      "regexp": "https://picsum\\.photos/seed/[0-9]{5}/1920/270"
+    },
+    "title": {
+      "loremWords": {
+        "minLength": 5,
+        "maxLength": 20
+      }
+    },
+    "body": {
+      "loremParagraphs": {
+        "minLength": 10,
+        "maxLength": 100
+      }
+    },
+    "category": {
+      "string": ["one", "two", "three"]
+    },
+    "isDraft": {
+      "boolean": {}
+    },
+    "views": {
+      "int": {
+        "min": 0,
+        "max": 1000
+      }
+    },
+    "createdAt": {
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
+      }
+    },
+    "comments": {
+      "hasMany": "Comment"
+    }
+  },
+  "Comment": {
+    "_": {
+      "items": 25
+    },
+    "email": {
+      "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
+    },
+    "body": {
+      "loremParagraphs": {
+        "minLength": 10,
+        "maxLength": 100
+      }
+    },
+    "createdAt": {
+      "dateTime": {
+        "min": "2010-01-01T00:00:00Z",
+        "max": "2020-12-31T23:59:59Z"
+      }
+    },
+    "post": {
+      "belongsTo": "Post"
+    }
   }
 }
